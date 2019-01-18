@@ -1,0 +1,515 @@
+* {
+  font-family: "Microsoft YaHei", Arial, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.clear {
+  display: block;
+  clear: both;
+  font-size: 1px;
+  width: 1px;
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.ov-hi {
+  overflow: hidden;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.realTimeSnapshot-main {
+  position: relative;
+  background: repeat-x url(~@/assets/realTimeSnapshot/bg.jpg);
+  background-size: auto 100%;
+  height: 100%;
+  .header {
+    position: relative;
+    width: 1920px;
+    height: 152px;
+    transform-origin: top left;
+  }
+  .logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 270px;
+    background: no-repeat center center url(~@/assets/realTimeSnapshot/logo.png);
+    .url {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 500px;
+      height: 105px;
+      margin-left: -250px;
+      z-index: 999;
+    }
+  }
+  .menu {
+    position: absolute;
+    top: 76px;
+    right: 0;
+    left: 0;
+    height: 76px;
+    z-index: 10;
+    .time,
+    .right-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      line-height: 48px;
+      margin: -24px 0 0 -634px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+    }
+    .right-box {
+      margin-left: 210px;
+    }
+    .item {
+      float: left;
+      margin-left: 40px;
+    }
+    .flip-timer {
+      display: inline-block;
+      vertical-align: top;
+    }
+    .blacklist-btn {
+      position: absolute;
+      left: 45px;
+      top: 14px;
+      background: #951120;
+      height: 48px;
+      line-height: 44px;
+      padding: 0 16px;
+      border: 2px solid #fd2b3e;
+      border-radius: 6px;
+      box-shadow: inset 0 0 10px #fd2b3e;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      span {
+        display: inline-block;
+        vertical-align: top;
+        line-height: 42px;
+      }
+      .el-icon-d-arrow-right {
+        display: inline-block;
+        line-height: 44px;
+        vertical-align: top;
+        font-size: 22px;
+      }
+    }
+  }
+  .trail-show {
+    position: absolute;
+    top: 7.92vw;
+    right: 0;
+    bottom: 2px;
+    left: 0;
+    margin: 0 4px;
+    padding: 52px 0 6px;
+    border: 3px solid #05aefd;
+    .title {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      display: flex;
+      background: #185bb7;
+      line-height: 52px;
+      overflow: hidden;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      &>div {
+        flex: 1;
+        padding-left: 12px;
+      }
+      .t1 {
+        flex: none;
+        width: 430px;
+      }
+    }
+  }
+  .trail-list {
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    &::-webkit-scrollbar-track {
+      box-shadow: none;
+      background-color: transparent;
+    }
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent;
+      border: 2px solid transparent;
+    }
+  }
+  .trail-item {
+    margin: 8px 8px 0;
+    padding-bottom: 8px;
+    overflow: hidden;
+    border-bottom: 1px solid #247fd4;
+    transition: transform 0.6s, opacity 0.6s;
+    will-change: transform, opacity;
+    &.trail-list-enter {
+      opacity: 0;
+      transform: translateY(-156px);
+    }
+    &.trail-list-leave-to {
+      bottom: 0;
+      opacity: 0;
+    }
+    &.trail-list-leave-active {
+      position: absolute;
+    }
+    .info {
+      float: left;
+      background: repeat-x url(~@/assets/realTimeSnapshot/info_bg.jpg);
+      background-size: auto 100%;
+      border: 2px solid #13c5ff;
+      width: 416px;
+      height: 148px;
+      margin-right: 18px;
+      padding: 16px 16px 0 28px;
+      border: 2px solid #13c5ff;
+      border-radius: 8px;
+      box-shadow: inset 0 0 10px 2px #13c5ff;
+      img {
+        float: left;
+        width: 108px;
+        height: 108px;
+        box-shadow: 0 0 8px #00cff3;
+        border: 2px solid #00cff3;
+      }
+      ul {
+        list-style: none;
+        margin-left: 120px;
+        overflow: hidden;
+      }
+      li {
+        float: left;
+        display: flex;
+        line-height: 22px;
+        font-size: 14px;
+        color: #fff;
+      }
+      span {
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      em {
+        display: inline-block;
+        line-height: 22px;
+        padding: 0 6px;
+        border-radius: 6px;
+        font-style: normal;
+        &.l1 {
+          background: #ffe400;
+          color: #272726;
+        }
+        &.l2 {
+          background: #11c7ff;
+          color: #272726;
+        }
+        &.l3 {
+          background: #ff0039;
+        }
+      }
+      .labels {
+        float: right;
+      }
+    }
+    .list {
+      display: flex;
+      padding: 1px 0;
+      overflow: hidden;
+    }
+    .item {
+      flex: none;
+      width: 204px;
+      margin-right: 10px;
+      transition: transform 0.6s, opacity 0.6s;
+      will-change: transform, opacity;
+      &.list-enter {
+        opacity: 0;
+        transform: translateX(-214px);
+      }
+      &.list-leave-to {
+        right: 0;
+        opacity: 0;
+      }
+      &.list-leave-active {
+        position: absolute;
+      }
+      img {
+        display: block;
+        width: 100%;
+        height: 109px;
+        border: 1px solid #00cff3;
+      }
+      .txt {
+        background: no-repeat url(~@/assets/realTimeSnapshot/img1.png);
+        height: 37px;
+        padding: 3px 10px 0 32px;
+        font-size: 12px;
+        color: #fff;
+      }
+      p {
+        line-height: 16px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+  .blacklist-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 999;
+    &.show {
+      animation: layer-show 0.6s forwards;
+      .box {
+        animation: layer-show-box 0.6s forwards;
+      }
+    }
+    &.hide {
+      animation: layer-hide 0.4s forwards;
+      .box {
+        animation: layer-hide-box 0.4s forwards;
+      }
+    }
+    .mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, .5);
+      width: 100%;
+      height: 100%;
+    }
+    .box {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      bottom: 4px;
+      background: rgba(125, 0, 0, .4);
+      width: 670px;
+      padding: 68px 0 20px;
+      border: 2px solid #da1f3e;
+    }
+    .title {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      background: no-repeat center bottom url(~@/assets/realTimeSnapshot/img3.png);
+      height: 68px;
+      line-height: 66px;
+      padding: 0 0 2px 32px;
+      font-size: 24px;
+      color: #fff;
+      .el-icon-d-arrow-right {
+        display: inline-block;
+        line-height: 70px;
+        margin-right: 10px;
+        vertical-align: top;
+        font-size: 28px;
+      }
+      .total {
+        float: right;
+        height: 66px;
+        line-height: 78px;
+        margin-right: 26px;
+        font-size: 20px;
+        span {
+          display: inline-block;
+          line-height: 66px;
+          margin-right: 8px;
+          vertical-align: top;
+          font-size: 44px;
+          font-weight: bold;
+          color: #da1f3e;
+        }
+      }
+    }
+    .list {
+      height: 100%;
+      padding: 20px 15px 0;
+      overflow: hidden;
+    }
+    .item {
+      background: #b22236;
+      margin-bottom: 15px;
+      padding: 20px;
+      overflow: hidden;
+      border: 2px solid #fd2b3e;
+      transition: transform 0.6s, opacity 0.6s;
+      will-change: transform, opacity;
+      &.blacklist-enter {
+        opacity: 0;
+        transform: translateY(-154px);
+      }
+      &.blacklist-leave-to {
+        bottom: 0;
+        opacity: 0;
+      }
+      &.blacklist-enter-active,
+      &.blacklist-leave-active {
+        position: absolute;
+      }
+      &.elastic {
+        animation: elastic 0.4s;
+      }
+    }
+    .comparison {
+      float: left;
+      display: flex;
+      height: 110px;
+      margin-right: 10px;
+      .pic {
+        position: relative;
+        width: 110px;
+        height: 110px;
+        border: 1px solid #ef1028;
+      }
+      .mask {
+        position: absolute;
+        top: auto;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.6);
+        height: auto;
+        line-height: 20px;
+        text-align: center;
+        font-size: 14px;
+        color: #fff;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+    }
+    .info {
+      ul {
+        list-style: none;
+        overflow: hidden;
+        margin: 0;
+      }
+      li {
+        position: relative;
+        float: left;
+        line-height: 22px;
+        font-size: 14px;
+        color: #fff;
+        &.fr {
+          float: right;
+        }
+        &.name {
+          width: 100%;
+          padding-right: 60px;
+        }
+      }
+      span {
+        color: #f9fafa;
+      }
+      em {
+        position: absolute;
+        right: 0;
+        font-style: normal;
+      }
+    }
+  }
+}
+
+@keyframes elastic {
+  0% {
+    transform: scale(0.95);
+  }
+  33% {
+    transform: scale(1);
+  }
+  66% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes layer-show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes layer-show-box {
+  0% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes layer-hide {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes layer-hide-box {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}

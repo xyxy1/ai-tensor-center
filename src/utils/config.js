@@ -1,0 +1,1 @@
+export const newPageFilter = ["carBigData", "analysis", "realTimeSnapshot", "customWindow"];

@@ -1,0 +1,185 @@
+$modele-list-height: 120px;
+$property-widht: 300px;
+$rgb-main:#72acef;
+/* 以上为基础属性 */
+
+* {
+  box-sizing: border-box;
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+}
+
+.edit-window-main {
+  position: relative;
+  height: 100%;
+}
+
+// 模块列表
+.module-list {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: $rgb-main;
+  height: $modele-list-height;
+  .swiper {
+    height: 100%;
+    padding: 5px 0;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    background-size: 12px 20px;
+    width: 12px;
+    height: 20px;
+    margin-top: -10px;
+  }
+  .swiper-pagination {
+    bottom: 0;
+    line-height: 10px;
+  }
+  .swiper-slide {
+    width: auto;
+  }
+  .box {
+    position: relative;
+    width: 260px;
+    height: 100%;
+    border: 2px solid #666;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    &.sel {
+      border-color: #fff;
+      i {
+        display: block;
+      }
+    }
+    i {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      display: none;
+      background: #67c23a;
+      padding: 3px;
+      border-radius: 100%;
+      font-size: 14px;
+      color: #fff;
+    }
+  }
+  .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// 属性设置
+.property {
+  position: absolute;
+  top: $modele-list-height;
+  bottom: 0;
+  left: 0;
+  background: #eee;
+  width: $property-widht;
+  .el-form {
+    padding: 10px;
+    .title {
+      height: 36px;
+      line-height: 26px;
+      text-align: center;
+      font-size: 16px;
+      color: #333;
+    }
+  }
+  .btns {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #ddd;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 0;
+    .btn {
+      display: inline-block;
+      cursor: pointer;
+    }
+    .svg-icon {
+      display: block;
+      width: 30px;
+      height: 30px;
+      color: $rgb-main;
+    }
+  }
+}
+
+// 主模块
+.main {
+  position: absolute;
+  top: $modele-list-height;
+  right: 0;
+  bottom: 0;
+  left: $property-widht;
+  overflow: hidden;
+  &.show {
+    .mask,
+    .resizable {
+      display: none !important;
+    }
+  }
+  .view {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #333;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    margin: -540px 0 0 -960px;
+    transform: scale(0);
+    .item {
+      position: absolute;
+      cursor: move;
+      &.sel {
+        .mask {
+          display: none;
+        }
+        .resizable {
+          display: block;
+        }
+      }
+      /deep/ {
+        .component {
+          top: 0 !important;
+          left: 0 !important;
+        }
+      }
+    }
+    .mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+// 关闭查看
+.close {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #fff;
+  padding: 8px;
+  border: 2px #333 solid;
+  border-radius: 100%;
+  font-size: 22px;
+  color: #333;
+  z-index: 999;
+  cursor: pointer;
+}

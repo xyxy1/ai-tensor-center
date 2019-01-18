@@ -1,0 +1,822 @@
+* {
+  font-family: "Microsoft YaHei", Arial, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.clear {
+  display: block;
+  clear: both;
+  font-size: 1px;
+  width: 1px;
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.ellipsis {
+  width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ov-hi {
+  overflow: hidden;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.carBigData-main {
+  position: relative;
+  background: repeat-x url(~@/assets/carBigData/bg.jpg);
+  background-size: auto 100%;
+  height: 100%;
+  .header {
+    position: relative;
+    width: 1920px;
+    height: 140px;
+    background: no-repeat center top url(~@/assets/carBigData/logo.png);
+    transform-origin: top left;
+    .url {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      background: repeating-linear-gradient(#fff, #c3dcff 100%);
+      -webkit-background-clip: text;
+      width: 800px;
+      height: 116px;
+      line-height: 100px;
+      margin-left: -400px;
+      text-align: center;
+      letter-spacing: 1px;
+      font-size: 50px;
+      font-weight: bold;
+      color: transparent;
+      z-index: 999;
+    }
+    .time {
+      position: absolute;
+      top: 24px;
+      right: 34px;
+      .tit,
+      .flip-timer {
+        float: left;
+      }
+      .tit {
+        background: #226eb6;
+        height: 48px;
+        line-height: 44px;
+        margin-right: 10px;
+        padding: 0 5px;
+        border: 2px solid #13c5ff;
+        border-radius: 6px;
+        box-shadow: inset 0 0 20px #13c5ff;
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+      }
+    }
+    /deep/ {
+      .flip-timer-item {
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+      }
+      .flip-timer-item.separator {
+        width: 10px;
+        box-shadow: none;
+        span {
+          background: none;
+        }
+      }
+    }
+  }
+  /* 左侧 */
+  .left-show {
+    position: absolute;
+    top: 4.583333333333333vw;
+    bottom: 10.83333333333333vw;
+    left: 1.5625vw;
+    width: 20.52083333333333vw;
+    hr {
+      height: 2.4%;
+      border: 0;
+    }
+    .left-chart {
+      position: relative;
+      background: rgba(2, 34, 82, 0.7);
+      width: 100%;
+      height: 31.5%;
+      padding: 36px 10px 10px;
+      border: 2px solid #13c5ff;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+      .title {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: repeat-x url(~@/assets/analysis/chart_title.jpg);
+        width: 100%;
+        padding-left: 30px;
+        line-height: 36px;
+        font-size: 14px;
+        color: #f4f7f9;
+        &:before {
+          position: absolute;
+          top: 50%;
+          left: 10px;
+          background: #fff;
+          width: 10px;
+          height: 10px;
+          margin-top: -5px;
+          border-radius: 100%;
+          content: "";
+        }
+      }
+    }
+    .left-box {
+      position: relative;
+      background: rgba(2, 34, 82, 0.7);
+      height: 14.9%;
+      padding: 36px 10px 0;
+      border: 2px solid #13c5ff;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+      .box {
+        position: relative;
+        height: 100%;
+        text-align: right;
+        font-size: 2.8vh;
+        font-weight: bold;
+        color: #fff;
+        &.b1 {
+          background: no-repeat 3% center url(~@/assets/carBigData/icon1.png);
+          background-size: auto 55%;
+        }
+        &.b2 {
+          background: no-repeat 2% center url(~@/assets/carBigData/icon2.png);
+          background-size: auto 80%;
+        }
+        span {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+      .title {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: repeat-x url(~@/assets/carBigData/chart_title.jpg);
+        width: 100%;
+        padding-left: 30px;
+        line-height: 36px;
+        font-size: 14px;
+        color: #f4f7f9;
+        &:before {
+          position: absolute;
+          top: 50%;
+          left: 10px;
+          background: #fff;
+          width: 10px;
+          height: 10px;
+          margin-top: -5px;
+          border-radius: 100%;
+          content: "";
+        }
+        span {
+          float: right;
+          background: #ff0039;
+          line-height: 26px;
+          margin: 5px 8px 0 0;
+          padding: 0 6px;
+          border-radius: 8px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  /* 实时抓拍 */
+  .real-time-snapshot {
+    position: absolute;
+    bottom: 1.6vw;
+    left: 1.5625vw;
+    background: repeat-x url(~@/assets/carBigData/realTime_bg1.jpg);
+    background-size: auto 100%;
+    width: 75vw;
+    height: 8.072916666666667vw;
+    padding: 4px 4px 4px 2vw;
+    border: 2px solid #13c5ff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    z-index: 9;
+    .title {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 2vw;
+      text-align: center;
+      text-shadow: 0 0 20px #001a69;
+      font-size: 1.2vw;
+      font-weight: bold;
+      color: #cfe2ff;
+      transform: translateY(-50%);
+    }
+    .list {
+      background: repeat-x url(~@/assets/carBigData/realTime_bg2.jpg);
+      background-size: auto 100%;
+      height: 100%;
+      padding: 10px;
+      overflow: hidden;
+      border: 2px #1a7fca solid;
+    }
+    .box {
+      display: flex;
+      height: 100%;
+      overflow: hidden;
+    }
+    .list-enter,
+    .list-leave-to {
+      margin-left: calc(-8.06vw + 36px) !important;
+      opacity: 0;
+    }
+    .list-leave-active {
+      transition: margin 1.6s, opacity 1.6s !important;
+    }
+    .pic {
+      position: relative;
+      width: calc(8.06vw - 36px);
+      height: calc(8.06vw - 36px);
+      margin-right: 10px;
+      border: 2px #11c7ff solid;
+      transition: margin 0.4s, opacity 0.4s;
+      will-change: margin, opacity;
+      &.warn {
+        border: 4px #ff0039 solid;
+        animation: img-warn 3s;
+        img {
+          width: calc(8.06vw - 44px);
+          height: calc(8.06vw - 44px);
+        }
+        .top-label {
+          span {
+            background: #ff0039;
+            color: #fff;
+          }
+          &:after {
+            border-left-color: #ff0039;
+          }
+        }
+      }
+      .mask {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.6);
+        line-height: 16px;
+        text-align: center;
+        font-size: 12px;
+        color: #fff;
+      }
+    }
+    img {
+      display: block;
+      width: calc(8.06vw - 40px);
+      height: calc(8.06vw - 40px);
+    }
+    .tip {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100px;
+      line-height: 40px;
+      margin: -20px 0 0 -50px;
+      text-align: center;
+      font-size: 18px;
+      color: #8aa3c8;
+    }
+    .top-label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      line-height: 1.67vh;
+      margin-right: 0.74vh;
+      padding-right: 1.5vh;
+      overflow: hidden;
+      font-size: 1.3vh;
+      color: #272726;
+      span {
+        display: block;
+        background: #11c7ff;
+        padding: 0 0.37vh;
+      }
+      &:after {
+        position: absolute;
+        top: -1.67vh;
+        right: 0;
+        width: 0;
+        height: 0;
+        float: left;
+        border-left: 1.67vh solid #11c7ff;
+        border-top: 1.67vh solid transparent;
+        border-bottom: 1.67vh solid transparent;
+        content: "";
+      }
+    }
+  }
+  /* 右侧信息 */
+  .right-show {
+    position: absolute;
+    top: 4.583333333333333vw;
+    right: 1.770833333333333vw;
+    bottom: 1.6vw;
+    width: 20.3125%;
+    overflow: hidden;
+    z-index: 10;
+    .box {
+      width: 390px;
+      transform-origin: top left;
+    }
+    /* 通用 */
+    .normal {
+      background: rgba(0, 0, 0, .25);
+      margin-bottom: 20px;
+      border: 2px #13c5ff solid;
+      box-shadow: inset 0 0 20px #13c5ff;
+      transition: transform 0.6s, opacity 0.6s;
+      will-change: transform, opacity;
+      &.list-drop-enter {
+        opacity: 0;
+        transform: translateY(-160px);
+      }
+      &.list-drop-leave-to {
+        bottom: 0;
+        opacity: 0;
+      }
+      &.list-drop-leave-active {
+        position: absolute;
+      }
+      &.elastic {
+        animation: elastic 0.4s;
+      }
+      &.warn {
+        background: rgba(126, 5, 9, .5);
+        border-color: #fd2b3e;
+        box-shadow: inset 0 0 20px #fd2b3e;
+        .tip {
+          display: block;
+        }
+        .pic {
+          border-color: #fd2b3e;
+          .mask {
+            background: rgba(209, 19, 36, .7);
+          }
+        }
+        .info span {
+          color: #d71f63;
+        }
+      }
+      .tip {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: none;
+        width: 90px;
+        line-height: 26px;
+        padding-left: 25px;
+        background: no-repeat left top url(~@/assets/analysis/title_tip1.png);
+        font-size: 14px;
+        color: #fff;
+      }
+      .pic {
+        position: relative;
+        float: left;
+        width: 100px;
+        height: 100px;
+        border: 2px solid #13c5ff;
+        img {
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
+        .mask {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: rgba(0, 0, 0, 0.6);
+          line-height: 20px;
+          text-align: center;
+          font-size: 14px;
+          color: #fff;
+        }
+      }
+      .info {
+        padding: 18px 0 18px 18px;
+        overflow: hidden;
+        ul {
+          list-style: none;
+          overflow: hidden;
+          padding: 0 16px;
+        }
+        li {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          line-height: 24px;
+          font-size: 14px;
+          color: #fff;
+        }
+        span {
+          display: inline-block;
+          margin-right: 4px;
+          font-weight: bold;
+          color: #13c5ff;
+        }
+      }
+    }
+    /* 空数据 */
+    .null {
+      position: relative;
+      background: rgba(0, 0, 0, .25);
+      width: 390px;
+      height: 140px;
+      line-height: 140px;
+      margin-bottom: 20px;
+      border: 2px #13c5ff solid;
+      text-align: center;
+      font-size: 18px;
+      color: #8aa3c8;
+    }
+  }
+  /*地图区域*/
+  .map-region {
+    position: absolute;
+    top: 7.8125vw;
+    right: 23.4375vw;
+    bottom: 10.9375vw;
+    left: 23.4375vw;
+    border: 2px solid #13c5ff;
+    .satellite-switch {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: no-repeat url(~@/assets/analysis/icon-satellite-off.png);
+      width: 85px;
+      height: 36px;
+      line-height: 36px;
+      padding-left: 44px;
+      font-size: 14px;
+      color: #7d8194;
+      z-index: 999;
+      cursor: pointer;
+      &.on {
+        background-image: url(~@/assets/analysis/icon-satellite-on.png);
+        color: #4e9ef8;
+      }
+    }
+    .map {
+      width: 100%;
+      height: 100%;
+      /deep/ {
+        .amap-logo,
+        .amap-copyright {
+          display: none !important;
+        }
+      }
+    }
+    .map-camera {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      .icon {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: no-repeat url(~@/assets/carBigData/map-icon1.png);
+        background-size: 100% 100%;
+      }
+      &.warn {
+        .icon {
+          background-image: url(~@/assets/carBigData/map-icon2.png);
+        }
+      }
+    }
+    .map-camera-layer {
+      position: relative;
+      z-index: 99;
+      .list-rise-enter {
+        margin-bottom: -120px !important;
+        opacity: 0;
+      }
+      .list-rise-leave-active,
+      .list-rise-leave-to {
+        display: none;
+        opacity: 0;
+      }
+      ul {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 84px;
+        overflow: hidden;
+        margin-left: -42px;
+        list-style: none;
+      }
+      li {
+        position: relative;
+        background: #13c5ff;
+        width: 100%;
+        margin-top: 4px;
+        padding: 5px 0;
+        border-radius: 10px;
+        transition: margin 0.6s, opacity 0.6s;
+        will-change: margin, opacity;
+        &.warn-item {
+          background-color: #fa0f43;
+          .t1 {
+            color: #74021c;
+          }
+          .t2 {
+            color: #ffffff;
+          }
+        }
+        &.vanish {
+          animation: vanish 1s 3s forwards;
+        }
+        &.hide {
+          animation: vanish 2s forwards !important;
+        }
+      }
+      .pic {
+        display: block;
+        width: 70px;
+        height: 70px;
+        margin: 0 auto;
+      }
+      .t1 {
+        line-height: 14px;
+        margin-top: 4px;
+        padding: 0 5px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #153050;
+      }
+      .t2 {
+        padding: 2px 5px 0;
+        font-size: 14px;
+        font-weight: bold;
+        color: #fff;
+      }
+    }
+  }
+  /* 黑名单列表 */
+  .blacklist-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 999;
+    &.show {
+      animation: layer-show 0.6s forwards;
+      .box {
+        animation: layer-show-box 0.6s forwards;
+      }
+    }
+    &.hide {
+      animation: layer-hide 0.4s forwards;
+      .box {
+        animation: layer-hide-box 0.4s forwards;
+      }
+    }
+    .mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, .5);
+      width: 100%;
+      height: 100%;
+    }
+    .box {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      bottom: 4px;
+      background: rgba(112, 48, 48, 0.9);
+      width: 424px;
+      padding: 68px 0 20px;
+      border: 2px solid #da1f3e;
+    }
+    .title {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      background: no-repeat center bottom url(~@/assets/realTimeSnapshot/img3.png);
+      height: 68px;
+      line-height: 66px;
+      padding: 0 0 2px 32px;
+      font-size: 24px;
+      color: #fff;
+      .el-icon-d-arrow-right {
+        display: inline-block;
+        line-height: 70px;
+        margin-right: 10px;
+        vertical-align: top;
+        font-size: 28px;
+      }
+      .total {
+        float: right;
+        height: 66px;
+        line-height: 78px;
+        margin-right: 26px;
+        font-size: 20px;
+        span {
+          display: inline-block;
+          line-height: 66px;
+          margin-right: 8px;
+          vertical-align: top;
+          font-size: 44px;
+          font-weight: bold;
+          color: #da1f3e;
+        }
+      }
+    }
+    .list {
+      height: 100%;
+      padding: 20px 15px 0;
+      overflow: hidden;
+    }
+    .item {
+      background: rgba(0, 0, 0, .25);
+      margin-bottom: 20px;
+      border: 2px solid #fd2b3e;
+      box-shadow: inset 0 0 20px #fd2b3e;
+      transition: transform 0.6s, opacity 0.6s;
+      will-change: transform, opacity;
+      &.blacklist-enter {
+        opacity: 0;
+        transform: translateY(-160px);
+      }
+      &.blacklist-leave-to {
+        bottom: 0;
+        opacity: 0;
+      }
+      &.blacklist-enter-active,
+      &.blacklist-leave-active {
+        position: absolute;
+      }
+      &.elastic {
+        animation: elastic 0.4s;
+      }
+      .tip {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: none;
+        width: 90px;
+        line-height: 26px;
+        padding-left: 25px;
+        background: no-repeat left top url(~@/assets/analysis/title_tip1.png);
+        font-size: 14px;
+        color: #fff;
+      }
+      .pic {
+        position: relative;
+        float: left;
+        width: 100px;
+        height: 100px;
+        border: 2px solid #fd2b3e;
+        img {
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
+        .pic-mask {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: rgba(209, 19, 36, .7);
+          line-height: 20px;
+          text-align: center;
+          font-size: 14px;
+          color: #fff;
+        }
+      }
+      .info {
+        padding: 18px 0 18px 18px;
+        overflow: hidden;
+        ul {
+          list-style: none;
+          overflow: hidden;
+          padding: 0 16px;
+        }
+        li {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          line-height: 24px;
+          font-size: 14px;
+          color: #fff;
+        }
+        span {
+          display: inline-block;
+          margin-right: 4px;
+          font-weight: bold;
+          color: #d71f63;
+        }
+      }
+    }
+  }
+}
+
+@keyframes vanish {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+
+@keyframes elastic {
+  0% {
+    transform: scale(0.95);
+  }
+  33% {
+    transform: scale(1);
+  }
+  66% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes layer-show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes layer-show-box {
+  0% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes layer-hide {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes layer-hide-box {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
